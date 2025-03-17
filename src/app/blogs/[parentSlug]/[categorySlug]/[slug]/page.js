@@ -7,8 +7,8 @@ import Link from "next/link";
 export async function DetailPage({ params }) {
   let paramsData = await params;
 
-  const headersList = headers();
-  const previousPage = headersList.get("referer") || "/";
+  const headersList = await headers();
+  const previousPage = headersList?.get("referer") || "/";
 
   const getBlogDetailHandler = async (slug) => {
     let blog = await getBlogsData(slug);
@@ -39,7 +39,7 @@ export async function DetailPage({ params }) {
         </div>
       </div>
       <div
-        className="font-sans font-normal leading-8 tracking-wider text-lg cursor-text"
+        className="font-sans font-normal leading-8 tracking-wider text-lg cursor-grab"
         dangerouslySetInnerHTML={{ __html: blogDetails?.[0]?.desc }}
       ></div>
     </div>

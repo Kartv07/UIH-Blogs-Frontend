@@ -72,7 +72,7 @@ function Sidebar() {
                   <div
                     onClick={() => {
                       item?.categories?.length > 0 ? setCurrSlug(item?.slug == currSlug ? null : item?.slug) : setCurrSlug(item?.slug);
-                      if (!item.categories) router?.push(`/${item?.slug}`);
+                      !item?.categories ? router.push(`/${item?.slug}`) : router.push(`/blogs/${item?.slug}`);
                     }}
                     className={`flex px-4 my-2 items-center justify-between gap-2 py-3 rounded-lg hover:bg-[#1d1e24] hover:cursor-pointer border-[1px] border-[#141414] ${
                       pathName?.includes(item?.slug) ? "bg-[#1d1e24] border-[1px] !border-[#53e1e8]" : ""
@@ -98,13 +98,13 @@ function Sidebar() {
                       ))}
                   </div>
 
-                  {item?.categories && (currSlug == item?.slug || pathName?.includes(item?.slug)) && (
+                  {item?.categories && (currSlug == item?.slug || pathName?.includes(`/${item?.slug}`)) && (
                     <div className="h-[30%] overflow-y-scroll scrollbar-hide">
                       {item?.categories?.map((category, index) => (
                         <div
                           key={index}
                           onClick={() => router?.push(`/blogs/${item?.slug}/${category?.slug}`)}
-                          className={`hover:bg-[#1d1e24] hover:cursor-pointer px-4 p-2 my-3 rounded-lg mx-6 ${pathName.includes(category?.slug) ? "bg-[#1d1e24]" : ""}`}
+                          className={`hover:bg-[#1d1e24] hover:cursor-pointer px-4 p-2 my-3 rounded-lg mx-6 ${pathName.includes(`/${category?.slug}`) ? "bg-[#1d1e24]" : ""}`}
                         >
                           <div className="flex items-center gap-2">
                             <GitMerge color="#fbda74" size={20} />

@@ -7,7 +7,7 @@ export default function LandingPage() {
   const router = useRouter();
 
   return (
-    <div className="bg-[#141414] h-screen mx-auto flex flex-col justify-center items-center">
+    <div className="bg-[#141414] min-h-screen mx-auto flex flex-col justify-center items-center">
       <div className="bg-gradient-to-r flex justify-center items-center from-purple-500 to-[#53e1e8] w-16 h-16 rounded-lg">
         <span className="text-white font-bold text-xl">&lt;/&gt;</span>
       </div>

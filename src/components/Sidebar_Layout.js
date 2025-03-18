@@ -44,7 +44,7 @@ function Sidebar() {
   }, []);
 
   return (
-    <>
+    <div>
       <div className="md:hidden px-12 fixed left-0 top-0 border-b-2 border-[#1d1e24] h-14 w-full bg-[#141414] flex justify-between items-center">
         {isMobileOpen ? (
           <CircleX
@@ -62,10 +62,10 @@ function Sidebar() {
       </div>
       <div
         className={`md:block mt-14 md:mt-0 ${
-          isMobileOpen ? "block" : "hidden"
+          isMobileOpen ? "block h-screen" : "hidden"
         }`}
       >
-        <div className="h-screen w-64 py-4 bg-[#141414] flex flex-col justify-between">
+        <div className="w-64 h-[94vh] md:h-screen py-4 bg-[#141414] flex flex-col justify-between">
           <div>
             <div className="flex flex-col items-center justify-center border-b-2 py-4 w-full border-[#1d1e24]">
               <div
@@ -194,7 +194,7 @@ function Sidebar() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

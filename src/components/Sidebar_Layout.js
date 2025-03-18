@@ -60,13 +60,18 @@ function Sidebar() {
           />
         )}
       </div>
-      <div className={`md:block mt-14 md:mt-0 ${isMobileOpen ? 'block' : 'hidden'}`}>
+      <div
+        className={`md:block mt-14 md:mt-0 ${
+          isMobileOpen ? "block" : "hidden"
+        }`}
+      >
         <div className="h-screen w-64 py-4 bg-[#141414] flex flex-col justify-between">
           <div>
             <div className="flex flex-col items-center justify-center border-b-2 py-4 w-full border-[#1d1e24]">
               <div
                 onClick={() => {
                   setCurrSlug(null);
+                  setIsMobileOpen(false);
                   router.push("/");
                 }}
                 className="relative w-16 h-16 cursor-pointer"
@@ -101,6 +106,9 @@ function Sidebar() {
                               item?.slug == currSlug ? null : item?.slug
                             )
                           : setCurrSlug(item?.slug);
+
+                        setIsMobileOpen(false);
+
                         !item?.categories
                           ? router.push(`/${item?.slug}`)
                           : router.push(`/blogs/${item?.slug}`);
@@ -141,11 +149,12 @@ function Sidebar() {
                           {item?.categories?.map((category, index) => (
                             <div
                               key={index}
-                              onClick={() =>
+                              onClick={() => {
+                                setIsMobileOpen(false);
                                 router?.push(
                                   `/blogs/${item?.slug}/${category?.slug}`
-                                )
-                              }
+                                );
+                              }}
                               className={`hover:bg-[#1d1e24] hover:cursor-pointer px-4 p-2 my-3 rounded-lg mx-6 ${
                                 pathName.includes(`/${category?.slug}`)
                                   ? "bg-[#1d1e24]"

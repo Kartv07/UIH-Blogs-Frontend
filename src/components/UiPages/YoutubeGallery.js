@@ -11,7 +11,7 @@ export default function YoutubeGallery({ youtubeData }) {
     <div
       className={`${youtubeData.length > 0 ? "p-8" : ""} ${
         youtubeData.length > 2 ? "!justify-center" : ""
-      } flex gap-8 items-center flex-wrap`}
+      } flex gap-8 items-center flex-wrap justify-center md:justify-start`}
     >
       {!youtubeData || youtubeData?.length == 0 ? (
         <>
@@ -46,8 +46,8 @@ export default function YoutubeGallery({ youtubeData }) {
 
               {/* Modal */}
               {currIdx === index && (
-                <div className="fixed inset-0 bg-[rgba(0,0,0,0.5)] flex items-center justify-center">
-                  <div className="bg-[#141414] rounded-lg p-6 w-fit flex flex-col gap-4">
+                <div className="fixed inset-0 z-20 bg-[rgba(0,0,0,0.5)] flex items-center justify-center">
+                  <div className="bg-[#141414] rounded-lg p-6 w-[90vw] md:w-fit flex flex-col gap-4">
                     <div className="flex justify-between items-center">
                       <div className="text-xl font-semibold font-mono line-clamp-2 bg-gradient-to-r to-white from-[#53e1e8] text-transparent bg-clip-text">
                         {youtube.title}

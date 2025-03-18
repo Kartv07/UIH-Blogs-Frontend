@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Youtube } from "lucide-react";
 import Loader from "../Loader";
+import YouTubePlayer from "../YoutubePlayer";
 
 export default function YoutubeGallery({ youtubeData }) {
   const [currIdx, setCurrIdx] = useState(null);

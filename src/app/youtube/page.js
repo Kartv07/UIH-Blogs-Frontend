@@ -1,7 +1,6 @@
 import YoutubeGallery from '@/components/UiPages/YoutubeGallery';
 import React from 'react'
 import { FetchYoutubeDataRequest } from '@/../api.service.js'
-import Loader from '@/components/Loader';
 
 export const revalidate = 900; // 15 minutes
 

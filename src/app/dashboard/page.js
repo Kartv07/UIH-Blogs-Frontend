@@ -1,6 +1,8 @@
 import React from "react";
-import { getAllCategories } from "../../../api.service";
+import { getAllCategories } from "@/../api.service.js";
 import Link from "next/link";
+
+export const revalidate = 900; // 15 minutes
 
 const getAllCatetoriesHandler = async () => {
   let categories = await getAllCategories();
@@ -8,8 +10,8 @@ const getAllCatetoriesHandler = async () => {
 };
 
 export default async function page() {
+  
   let allCategories = await getAllCatetoriesHandler();
-
 
   return (
     <div className="px-12 py-8 flex flex-wrap gap-8">

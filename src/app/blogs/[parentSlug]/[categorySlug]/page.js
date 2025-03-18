@@ -1,18 +1,21 @@
 import React from "react";
-import { getBlogsData } from "../../../../../api.service";
+import { getBlogsData } from "@/../api.service.js";
 import BlogsCard from "@/components/BlogsCard";
 
+export const revalidate = 900 // 15 minutes
+
+const getParentCategoryBlogs = async (paramsData) => {
+  let parentCategoryBlogs = await getBlogsData(
+    `parentCategory=${paramsData?.parentSlug}&category=${paramsData?.categorySlug}`
+  );
+  if (parentCategoryBlogs?.status == 200) return parentCategoryBlogs?.data;
+};
+
 async function ParentCategoryPage({ params }) {
+  
   let paramsData = await params;
 
-  const getParentCategoryBlogs = async () => {
-    let parentCategoryBlogs = await getBlogsData(
-      `parentCategory=${paramsData?.parentSlug}&category=${paramsData?.categorySlug}`
-    );
-    if (parentCategoryBlogs?.status == 200) return parentCategoryBlogs?.data;
-  };
-
-  let blogsData = await getParentCategoryBlogs();
+  let blogsData = await getParentCategoryBlogs(paramsData);
 
   return (
     <div>

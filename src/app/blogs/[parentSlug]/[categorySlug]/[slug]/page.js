@@ -1,19 +1,22 @@
 import React from "react";
-import { getBlogsData } from "../../../../../../api.service";
+import { getBlogsData } from "@/../api.service.js";
 import { headers } from "next/headers";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
+
+export const revalidate = 900 // 15 minutes
+
+const getBlogDetailHandler = async (slug) => {
+  let blog = await getBlogsData(slug);
+  if (blog?.status == 200) return blog?.data;
+};
 
 export async function DetailPage({ params }) {
   let paramsData = await params;
 
   const headersList = await headers();
-  const previousPage = headersList?.get("referer") || "/";
 
-  const getBlogDetailHandler = async (slug) => {
-    let blog = await getBlogsData(slug);
-    if (blog?.status == 200) return blog?.data;
-  };
+  const previousPage = headersList?.get("referer") || "/";
 
   let blogDetails = await getBlogDetailHandler(`slug=${paramsData?.slug}`);
 

@@ -7,7 +7,6 @@ export default function LandingPage() {
   const router = useRouter();
 
   return (
-    // <div className='from-[#141414] to-gray-800 bg-gradient-to-b h-screen'>LandingPage</div>
     <div className="bg-[#141414] h-screen mx-auto flex flex-col justify-center items-center py-18">
       <div className="bg-gradient-to-r flex justify-center items-center from-purple-500 to-[#53e1e8] w-16 h-16 rounded-lg">
         <span className="text-white font-bold text-xl">&lt;/&gt;</span>

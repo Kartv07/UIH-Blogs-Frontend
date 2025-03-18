@@ -6,10 +6,11 @@ import NoDataFound from "@/components/NoDataFound";
 import Image from "next/image";
 import { CircleX, Youtube } from "lucide-react";
 import YouTubePlayer from "@/components/YoutubePlayer";
+import Loader from "@/components/Loader";
 
 export default function ModalExample() {
   const [currIdx, setCurrIdx] = useState(null);
-  const [youtubeData, setYoutubeData] = useState([]);
+  const [youtubeData, setYoutubeData] = useState(null);
 
   const fetchYoutubeData = async () => {
     const res = await getYoutubeData();
@@ -19,6 +20,8 @@ export default function ModalExample() {
   useEffect(() => {
     fetchYoutubeData();
   }, []);
+
+  if(!youtubeData) return <Loader />
 
   return (
     <div

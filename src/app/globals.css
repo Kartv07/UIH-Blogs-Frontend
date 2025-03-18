@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 body {
-  background: black;
-  color: white;
+  background: black !important;
+  color: white !important;
   font-family: var('--font-geist-mono');
 }
 
@@ -39,4 +39,38 @@ body {
   border-radius: 8px;
   background-color: #141414;
   color : 'black';
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes mid {
+  0%, 100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+.animate-spin1 {
+  animation: spin 1.5s linear infinite 0.1s;
+}
+.animate-spin2 {
+  animation: spin 1.5s linear infinite 0.2s;
+}
+.animate-spin3 {
+  animation: spin 1.5s linear infinite 0.3s;
+}
+.animate-spin4 {
+  animation: spin 1.5s linear infinite 0.4s;
+}
+.animate-mid {
+  animation: mid 1s linear infinite;
 }

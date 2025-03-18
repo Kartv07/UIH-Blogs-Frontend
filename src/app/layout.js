@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${poppins.variable} ${geistMono.variable} antialiased flex`}
+        className={`${geistSans.variable} ${poppins.variable} ${geistMono.variable} antialiased flex text-white bg-black`}
       >
         <div className="h-full fixed left-0 top-0 border-r-2 border-[#1d1e24] ">
           <Sidebar />

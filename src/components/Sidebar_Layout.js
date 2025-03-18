@@ -45,7 +45,7 @@ function Sidebar() {
 
   return (
     <>
-      <div className="md:hidden z-[9999] px-12 fixed left-0 top-0 border-b-2 border-[#1d1e24] h-14 w-full bg-[#141414] flex justify-between items-center">
+      <div className="md:hidden px-12 fixed left-0 top-0 border-b-2 border-[#1d1e24] h-14 w-full bg-[#141414] flex justify-between items-center">
         {isMobileOpen ? (
           <CircleX
             size={30}

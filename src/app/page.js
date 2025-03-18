@@ -7,18 +7,18 @@ export default function LandingPage() {
   const router = useRouter();
 
   return (
-    <div className="bg-[#141414] h-screen mx-auto flex flex-col justify-center items-center py-18">
+    <div className="bg-[#141414] h-screen mx-auto flex flex-col justify-center items-center">
       <div className="bg-gradient-to-r flex justify-center items-center from-purple-500 to-[#53e1e8] w-16 h-16 rounded-lg">
         <span className="text-white font-bold text-xl">&lt;/&gt;</span>
       </div>
 
       <div className="mt-6 text-center">
-        <span className="bg-clip-text text-6xl text-center font-extrabold text-transparent font-serif bg-gradient-to-r from-purple-400 via-[#53e1e8] to-red-500">
+        <span className="bg-clip-text text-6xl leading-18 text-center font-extrabold text-transparent font-serif bg-gradient-to-r from-purple-400 via-[#53e1e8] to-red-500">
           Level Up Your Coding Journey
         </span>
       </div>
 
-      <div className="mt-8 text-xl text-center max-w-2/3">
+      <div className="mt-8 text-xl text-center px-8 md:max-w-2/3 md:px-0">
         Revised Content on DSA, System Design, and Software Development with
         practical tutorials, in-depth articles, and engaging video content.
       </div>

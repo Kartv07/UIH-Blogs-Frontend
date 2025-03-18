@@ -29,11 +29,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${poppins.variable} ${geistMono.variable} antialiased flex text-white bg-black`}
       >
-        <div className="h-full fixed left-0 top-0 border-r-2 border-[#1d1e24]">
+        <div className="h-full z-[10] fixed left-0 top-0 border-r-2 border-[#1d1e24]">
           <Sidebar />
         </div>
 
-        <div className="flex-grow h-full overflow-y-auto z-[-1] md:z-[1] md:ml-64 mt-14 md:mt-0">
+        <div className="flex-grow h-full overflow-y-auto md:ml-64 mt-14 md:mt-0">
           {children}
         </div>
       </body>

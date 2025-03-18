@@ -11,6 +11,7 @@ import {
   CircleChevronDown,
   Linkedin,
   Youtube,
+  FolderTree,
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
@@ -20,6 +21,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 function Sidebar() {
   const [menuItems, setMenuItems] = useState([
     { title: "Dashboard", slug: "dashboard", icon: <House color="#53e1e8" /> },
+    { title: "Youtube", slug: "youtube", icon: <Youtube color="#53e1e8" /> },
   ]);
 
   const [currSlug, setCurrSlug] = useState(null);
@@ -71,11 +73,19 @@ function Sidebar() {
                 <div key={index}>
                   <div
                     onClick={() => {
-                      item?.categories?.length > 0 ? setCurrSlug(item?.slug == currSlug ? null : item?.slug) : setCurrSlug(item?.slug);
-                      !item?.categories ? router.push(`/${item?.slug}`) : router.push(`/blogs/${item?.slug}`);
+                      item?.categories?.length > 0
+                        ? setCurrSlug(
+                            item?.slug == currSlug ? null : item?.slug
+                          )
+                        : setCurrSlug(item?.slug);
+                      !item?.categories
+                        ? router.push(`/${item?.slug}`)
+                        : router.push(`/blogs/${item?.slug}`);
                     }}
                     className={`flex px-4 my-2 items-center justify-between gap-2 py-3 rounded-lg hover:bg-[#1d1e24] hover:cursor-pointer border-[1px] border-[#141414] ${
-                      pathName?.includes(item?.slug) ? "bg-[#1d1e24] border-[1px] !border-[#53e1e8]" : ""
+                      pathName?.includes(item?.slug)
+                        ? "bg-[#1d1e24] border-[1px] !border-[#53e1e8]"
+                        : ""
                     }`}
                   >
                     <div className="flex items-center gap-2">
@@ -83,39 +93,52 @@ function Sidebar() {
                         <SquareTerminal color="#53e1e8" />
                       ) : item?.slug == "system-design" ? (
                         <Cog color="#53e1e8" />
-                      ) : (
+                      ) : item?.icon ? (
                         <div>{item?.icon}</div>
+                      ) : (
+                        <FolderTree color="#53e1e8" />
                       )}
                       <div className="font-semibold bg-gradient-to-r to-white from-[#53e1e8] text-transparent bg-clip-text">
                         {item?.title}
                       </div>
                     </div>
                     {item?.categories &&
-                      ((currSlug == item?.slug || pathName?.includes(item?.slug)) ? (
+                      (currSlug == item?.slug ||
+                      pathName?.includes(item?.slug) ? (
                         <CircleChevronDown color="#fbda74" size={20} />
                       ) : (
                         <CircleChevronRight size={20} />
                       ))}
                   </div>
 
-                  {item?.categories && (currSlug == item?.slug || pathName?.includes(`/${item?.slug}`)) && (
-                    <div className="h-[30%] overflow-y-scroll scrollbar-hide">
-                      {item?.categories?.map((category, index) => (
-                        <div
-                          key={index}
-                          onClick={() => router?.push(`/blogs/${item?.slug}/${category?.slug}`)}
-                          className={`hover:bg-[#1d1e24] hover:cursor-pointer px-4 p-2 my-3 rounded-lg mx-6 ${pathName.includes(`/${category?.slug}`) ? "bg-[#1d1e24]" : ""}`}
-                        >
-                          <div className="flex items-center gap-2">
-                            <GitMerge color="#fbda74" size={20} />
-                            <div  className="text-md font-semibold bg-gradient-to-r to-[#e95a18] from-[#fbda74] text-transparent bg-clip-text">
-                              {category?.title}
+                  {item?.categories &&
+                    (currSlug == item?.slug ||
+                      pathName?.includes(`/${item?.slug}`)) && (
+                      <div className="h-[30%] overflow-y-scroll scrollbar-hide">
+                        {item?.categories?.map((category, index) => (
+                          <div
+                            key={index}
+                            onClick={() =>
+                              router?.push(
+                                `/blogs/${item?.slug}/${category?.slug}`
+                              )
+                            }
+                            className={`hover:bg-[#1d1e24] hover:cursor-pointer px-4 p-2 my-3 rounded-lg mx-6 ${
+                              pathName.includes(`/${category?.slug}`)
+                                ? "bg-[#1d1e24]"
+                                : ""
+                            }`}
+                          >
+                            <div className="flex items-center gap-2">
+                              <GitMerge color="#fbda74" size={20} />
+                              <div className="text-md font-semibold bg-gradient-to-r to-[#e95a18] from-[#fbda74] text-transparent bg-clip-text">
+                                {category?.title}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                        ))}
+                      </div>
+                    )}
                 </div>
               ))}
             </div>

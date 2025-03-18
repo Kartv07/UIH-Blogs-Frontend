@@ -41,9 +41,25 @@ export const addNewBlog = async (postData) => {
   }
 }
 
+export const updateNewBlog = async (postData, id) => {
+  try {
+    return await api.put(`general/update-blog/${id}`, postData);
+  } catch (error) {
+    console.log(error, "erro")
+  }
+}
+
 export const getBlogsData = async (query) => {
   try {
     return await api.get(`general/get-blogs?${query}`);
+  } catch (error) {
+    console.log(error, "erro")
+  }
+}
+
+export const getYoutubeData = async (query) => {
+  try {
+    return await api.get(`youtube`);
   } catch (error) {
     console.log(error, "erro")
   }

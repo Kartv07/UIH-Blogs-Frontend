@@ -5,7 +5,8 @@ export default function Typeahead({
   options,
   addedNewCategory,
   setAddedNewCategory,
-  setSelected
+  setSelected,
+  defaultValue = {},
 }) {
   const [inputValue, setInputValue] = useState("");
   const [filteredOptions, setFilteredOptions] = useState(options);
@@ -46,7 +47,7 @@ export default function Typeahead({
     <div className="relative w-full">
       <input
         type="text"
-        value={inputValue}
+        value={defaultValue?.title || inputValue}
         onClick={()=>{setShowDropdown(true); setFilteredOptions(options)}}
         onChange={handleChange}
         placeholder="Type or add new..."

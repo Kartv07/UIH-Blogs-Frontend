@@ -57,7 +57,7 @@ export const getBlogsData = async (query) => {
   }
 }
 
-export const getYoutubeData = async (query) => {
+export const FetchYoutubeDataRequest = async (query) => {
   try {
     return await api.get(`youtube`);
   } catch (error) {

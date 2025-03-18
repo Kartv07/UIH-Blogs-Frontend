@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { Youtube } from "lucide-react";
+import { CircleX } from "lucide-react";
 import Loader from "../Loader";
 import YouTubePlayer from "../YoutubePlayer";
 
@@ -56,7 +56,7 @@ export default function YoutubeGallery({ youtubeData }) {
                         onClick={() => setCurrIdx(null)}
                         className="cursor-pointer"
                       >
-                        <Youtube size={30} color="#53e1e8" />
+                        <CircleX size={30} color="#53e1e8" />
                       </div>
                     </div>
                     <YouTubePlayer videoId={youtube.youtubeId} />

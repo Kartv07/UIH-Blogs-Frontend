@@ -52,16 +52,17 @@ function Sidebar() {
               className="relative w-16 h-16 cursor-pointer"
             >
               <Image
-                src="/assets/images/png/logo.png"
-                alt="logo"
+                src="https://res.cloudinary.com/dbqfsf3wi/image/upload/v1742291097/logo_tnnclr.png"
+                alt="Until Its Happen"
                 fill
                 style={{ objectFit: "cover", borderRadius: "50%" }}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
             <div className="text-lg mt-2 font-semibold">Until It's Happen</div>
           </div>
 
-          {menuItems?.length <= 1 ? (
+          {menuItems?.length <= 2 ? (
             <SkeletonTheme baseColor="#202020" highlightColor="#444">
               <p className="w-full flex flex-col items-center justify-center mx-auto mt-8">
                 <Skeleton count={5} width={220} height={12} />
@@ -104,7 +105,7 @@ function Sidebar() {
                     </div>
                     {item?.categories &&
                       (currSlug == item?.slug ||
-                      pathName?.includes(item?.slug) ? (
+                      pathName?.includes(`/${item?.slug}`) ? (
                         <CircleChevronDown color="#fbda74" size={20} />
                       ) : (
                         <CircleChevronRight size={20} />

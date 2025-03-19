@@ -22,7 +22,7 @@ export default function YoutubeGallery({ youtubeData }) {
           {youtubeData?.map((youtube, index) => (
             <div key={index}>
               <div className="flex relative flex-col gap-4 border-6 border-white bg-[#141414] rounded-lg p-4 max-w-[330px]">
-                <div className="text-xl font-semibold font-mono line-clamp-2 bg-gradient-to-r to-white from-[#53e1e8] text-transparent bg-clip-text">
+                <div className="text-xl font-semibold font-mono line-clamp-1 bg-gradient-to-r to-white from-[#53e1e8] text-transparent bg-clip-text">
                   {youtube.title}
                 </div>
                 <div

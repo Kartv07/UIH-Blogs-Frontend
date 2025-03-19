@@ -13,14 +13,15 @@ const geistMono = Geist_Mono({
 });
 
 const poppins = Poppins({
-  variable : '--font-poppins',
-  subsets: ['latin'],
-  weight : ['400']
-})
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export const metadata = {
   title: "Until Its Happen",
-  description: "One Stop Solution for all your DSA, System Design, and Software Development needs.",
+  description:
+    "One Stop Solution for all your DSA, System Design, and Software Development needs.",
 };
 
 export default function RootLayout({ children }) {

@@ -57,6 +57,15 @@ h2 {
   @apply text-xl my-2 font-bold font-mono;
 }
 
+ul {
+  @apply list-disc ml-10;
+}
+
+ol {
+  @apply list-decimal ml-10;
+}
+
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

@@ -57,7 +57,7 @@ function AddPost() {
         },
       }).then((result) => {
         if (result.isConfirmed) {
-          router.push("/blogs"); // Example redirect
+          router.push(`/blogs/${selectedParentCategory?.slug}/${selectedCategory?.slug}/${createNewBlog?.data?.slug}`); // Example redirect
         }
       });
     }

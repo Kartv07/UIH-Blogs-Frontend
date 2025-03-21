@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 import { usePathname } from "next/navigation";
+import Loader from "@/components/Loader";
 
 function AddPost() {
   const [addedNewCategory, setAddedNewCategory] = useState(false);
@@ -80,6 +81,10 @@ function AddPost() {
       });
     }
   };
+
+  if(!description) {
+    return <Loader />
+  }
 
   return (
     <div className="p-8 flex justify-between items-start">

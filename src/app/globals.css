@@ -41,6 +41,22 @@ body {
   color : 'black';
 }
 
+.cursive-font{
+  font-family: var(--font-cursive);
+}
+
+.poppins-font{
+  font-family: var(--font-poppins);
+}
+
+pre {
+  @apply bg-[#1d1e24] text-white p-4 rounded-lg overflow-x-auto;
+}
+
+h2 {
+  @apply text-xl my-2 font-bold font-mono;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

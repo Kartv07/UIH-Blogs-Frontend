@@ -2,9 +2,16 @@ import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar_Layout";
 
+import { Cedarville_Cursive } from "next/font/google";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+const cursive = Cedarville_Cursive({
+  variable: "--font-cursive",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 const geistMono = Geist_Mono({
@@ -28,7 +35,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${poppins.variable} ${geistMono.variable} antialiased flex text-white bg-black`}
+        className={`${geistSans.variable} ${poppins.variable} ${geistMono.variable} ${cursive.variable} antialiased flex text-white bg-black`}
       >
         <div className="h-full z-[10] fixed left-0 top-0 border-r-2 border-[#1d1e24]">
           <Sidebar />

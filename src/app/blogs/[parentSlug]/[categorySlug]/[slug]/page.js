@@ -42,7 +42,7 @@ export async function DetailPage({ params }) {
         </div>
       </div>
       <div
-        className="font-sans font-normal leading-8 tracking-wider text-lg cursor-grab"
+        className="font-sans font-normal leading-10 tracking-wider text-lg cursor-grab"
         dangerouslySetInnerHTML={{ __html: blogDetails?.[0]?.desc }}
       ></div>
     </div>

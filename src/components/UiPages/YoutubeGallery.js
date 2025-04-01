@@ -21,8 +21,8 @@ export default function YoutubeGallery({ youtubeData }) {
         <>
           {youtubeData?.map((youtube, index) => (
             <div key={index}>
-              <div className="flex relative flex-col gap-4 border-6 border-white bg-[#141414] rounded-lg p-4 max-w-[330px]">
-                <div className="text-xl font-semibold font-mono line-clamp-1 bg-gradient-to-r to-white from-[#53e1e8] text-transparent bg-clip-text">
+              <div className="flex relative flex-col gap-4 border-6 border-white bg-[#141414] rounded-lg p-4 min-w-[330px] max-w-[330px]">
+                <div className="text-xl font-semibold font-mono line-clamp-2 bg-gradient-to-r to-white from-[#53e1e8] text-transparent bg-clip-text">
                   {youtube.title}
                 </div>
                 <div
@@ -48,8 +48,8 @@ export default function YoutubeGallery({ youtubeData }) {
               {currIdx === index && (
                 <div className="fixed inset-0 z-20 bg-[rgba(0,0,0,0.5)] flex items-center justify-center">
                   <div className="bg-[#141414] rounded-lg p-6 w-[90vw] md:w-fit flex flex-col gap-4">
-                    <div className="flex justify-between items-center">
-                      <div className="text-xl font-semibold font-mono line-clamp-2 bg-gradient-to-r to-white from-[#53e1e8] text-transparent bg-clip-text">
+                    <div className="flex justify-between items-start">
+                      <div className="text-xl font-semibold font-mono max-w-[92%] line-clamp-2 bg-gradient-to-r to-white from-[#53e1e8] text-transparent bg-clip-text">
                         {youtube.title}
                       </div>
                       <div
@@ -60,9 +60,9 @@ export default function YoutubeGallery({ youtubeData }) {
                       </div>
                     </div>
                     <YouTubePlayer videoId={youtube.youtubeId} />
-                    <div className="text-md font-sans font-normal leading-6 max-w-[720px]">
+                    {/* <div className="text-md font-sans font-normal leading-6 max-w-[720px]">
                       {youtube.desc}
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               )}
